@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  height: 100vh;
+}
+
+.nav {
+    width:fit-content;
+    height:100px;
+    margin-top:0;
+    background-color:blue;
+}
