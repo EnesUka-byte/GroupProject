@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Blog</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.7;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #222;
+      text-align: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #4a69bd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: fit-content;
+      align-self: center;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #3b55a0;
+    }
+
+    #blogOutput {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #blogOutput h1 {
+      margin-bottom: 0.25rem;
+    }
+
+    #blogOutput h3 {
+      font-weight: 400;
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #blogOutput img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #blogOutput img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    #blogOutput p {
+      max-width: 800px;
+      text-align: justify;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    #blogOutput p:hover {
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+      transform: scale(1.015);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      p {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Create Your Blog</h1>
+
+  <form id="blogForm">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" required />
+
+    <label for="theme">Theme (book, game, etc.):</label>
+    <input type="text" id="theme" required />
+
+    <label for="image">Upload an Image:</label>
+    <input type="file" id="image" accept="image/*" required />
+
+    <label for="about">About It:</label>
+    <textarea id="about" rows="4" required></textarea>
+
+    <label for="history">History:</label>
+    <textarea id="history" rows="4" required></textarea>
+
+    <label for="why">Why You Like It:</label>
+    <textarea id="why" rows="4" required></textarea>
+
+    <button type="submit">Create Blog</button>
+  </form>
+
+  <div id="blogOutput">
+    <h1 id="outputName"></h1>
+    <h3 id="outputTheme"></h3>
+    <img id="outputImage" src="" alt="Uploaded image">
+    <p id="outputAbout"></p>
+    <p id="outputHistory"></p>
+    <p id="outputWhy"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("blogForm");
+    const output = document.getElementById("blogOutput");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const theme = document.getElementById("theme").value;
+      const about = document.getElementById("about").value;
+      const history = document.getElementById("history").value;
+      const why = document.getElementById("why").value;
+      const imageInput = document.getElementById("image");
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        document.getElementById("outputImage").src = event.target.result;
+        document.getElementById("outputImage").alt = theme;
+        document.getElementById("outputName").textContent = `Blog by ${name}`;
+        document.getElementById("outputTheme").textContent = `Theme: ${theme}`;
+        document.getElementById("outputAbout").textContent = about;
+        document.getElementById("outputHistory").textContent = history;
+        document.getElementById("outputWhy").textContent = why;
+
+        form.style.display = "none";
+        output.style.display = "flex";
+      };
+
+      reader.readAsDataURL(imageInput.files[0]);
+    });
+  </script>
+</body>
+</html>
