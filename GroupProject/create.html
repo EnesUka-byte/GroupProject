@@ -175,36 +175,54 @@
     <p id="outputWhy"></p>
   </div>
 
-  <script>
-    const form = document.getElementById("blogForm");
-    const output = document.getElementById("blogOutput");
+<script>
+  const form = document.getElementById("blogForm");
+  const output = document.getElementById("blogOutput");
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const theme = document.getElementById("theme").value;
-      const about = document.getElementById("about").value;
-      const history = document.getElementById("history").value;
-      const why = document.getElementById("why").value;
-      const imageInput = document.getElementById("image");
+    const name = document.getElementById("name").value;
+    const theme = document.getElementById("theme").value;
+    const about = document.getElementById("about").value;
+    const history = document.getElementById("history").value;
+    const why = document.getElementById("why").value;
+    const imageInput = document.getElementById("image");
 
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        document.getElementById("outputImage").src = event.target.result;
-        document.getElementById("outputImage").alt = theme;
-        document.getElementById("outputName").textContent = `Blog by ${name}`;
-        document.getElementById("outputTheme").textContent = `Theme: ${theme}`;
-        document.getElementById("outputAbout").textContent = about;
-        document.getElementById("outputHistory").textContent = history;
-        document.getElementById("outputWhy").textContent = why;
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const imageData = event.target.result;
 
-        form.style.display = "none";
-        output.style.display = "flex";
+      // Display preview
+      document.getElementById("outputImage").src = imageData;
+      document.getElementById("outputName").textContent = `Blog by ${name}`;
+      document.getElementById("outputTheme").textContent = `Theme: ${theme}`;
+      document.getElementById("outputAbout").textContent = about;
+      document.getElementById("outputHistory").textContent = history;
+      document.getElementById("outputWhy").textContent = why;
+
+      form.style.display = "none";
+      output.style.display = "flex";
+
+      // --- Save blog to localStorage ---
+      const blog = {
+        name,
+        theme,
+        about,
+        history,
+        why,
+        image: imageData,
+        timestamp: Date.now(),
       };
 
-      reader.readAsDataURL(imageInput.files[0]);
-    });
-  </script>
+      let blogs = JSON.parse(localStorage.getItem("creatorBlogs")) || [];
+      blogs.push(blog);
+      localStorage.setItem("creatorBlogs", JSON.stringify(blogs));
+    };
+
+    reader.readAsDataURL(imageInput.files[0]);
+  });
+</script>
+
 </body>
 </html>
