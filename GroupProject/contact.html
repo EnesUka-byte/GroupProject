@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Multidom</title>
+  <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.7;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+
+    nav .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2a6cf1;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: #333;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #2a6cf1;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 2.5rem;
+      color: #2a6cf1;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-weight: 400;
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Info Paragraph */
+    p {
+      max-width: 800px;
+      text-align: justify;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    p:hover {
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+      transform: scale(1.015);
+    }
+
+    /* Contact Form */
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #2a6cf1;
+      box-shadow: 0 0 0 3px rgba(42, 108, 241, 0.1);
+      outline: none;
+    }
+
+    button {
+      padding: 0.9rem 1.2rem;
+      background-color: #2a6cf1;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #1e56c5;
+      transform: scale(1.02);
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: #777;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">Multidom</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="help.html">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <h1>Contact Us</h1>
+  <h3>We’d love to hear from you</h3>
+
+  <p>
+    Have a question, idea, or feedback about <strong>Multidom</strong>? 
+    Whether it’s about improving the platform, reporting an issue, or collaborating, we’re always open to hearing from our community. 
+    Fill out the form below and we’ll get back to you as soon as possible.
+  </p>
+
+  <!-- Contact Form -->
+  <form action="#" method="post">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <footer>
+    &copy; 2025 Multidom. All rights reserved.
+  </footer>
+
+</body>
+</html>

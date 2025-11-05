@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help - Multidom</title>
+  <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.7;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+
+    nav .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2a6cf1;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: #333;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #2a6cf1;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 2.5rem;
+      color: #2a6cf1;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-weight: 400;
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Help content blocks */
+    section {
+      max-width: 800px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+      transform: scale(1.015);
+    }
+
+    h2 {
+      color: #2a6cf1;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.8rem 1.4rem;
+      background-color: #2a6cf1;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a.button:hover {
+      background-color: #1e56c5;
+      transform: scale(1.02);
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: #777;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">Multidom</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <h1>Help Center</h1>
+  <h3>Find answers, tips, and guides for using Multidom</h3>
+
+  <section>
+    <h2>Getting Started</h2>
+    <p>
+      New to <strong>Multidom</strong>? Here’s how to begin:
+    </p>
+    <ul>
+      <li>Visit the <a href="index.html">Home</a> page to explore community blogs.</li>
+      <li>Go to “Your Blog” → <strong>Add Blog</strong> to start creating your own page.</li>
+      <li>Customize your blog with text, images, and links — make it truly yours!</li>
+    </ul>
+    <p>
+      Each blog is part of the Multidom network, giving you a place to share your ideas, stories, and inspirations with others.
+    </p>
+  </section>
+
+  <section>
+    <h2>Managing Your Blogs</h2>
+    <p>
+      You can create, edit, and organize multiple blogs under your account. 
+      To make updates, simply navigate to your blog’s page and click the edit icon or use the <strong>“Your Blog”</strong>

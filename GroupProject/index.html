@@ -74,7 +74,7 @@
       border-radius: 8px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       padding: 0.5rem 0;
-      min-width: 180px;
+      min-width: 200px;
       z-index: 10;
     }
 
@@ -86,6 +86,8 @@
       display: block;
       padding: 0.5rem 1rem;
       color: #333;
+      text-decoration: none;
+      transition: background-color 0.2s;
     }
 
     .dropdown-menu a:hover {
@@ -182,53 +184,52 @@
         padding: 1.5rem;
         font-size: 1rem;
       }
-    }
+    } 
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav>
-  <div class="brand">Multidom</div>
-  <ul>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Help</a></li>
-    <li class="dropdown">
-      <a href="#">Creator Blogs ▼</a>
-      <div class="dropdown-menu">
-        <a href="#">Placeholder Blog 1</a>
-        <a href="#">Placeholder Blog 2</a>
-        <a href="#">Placeholder Blog 3</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="#">Co-Creator ▼</a>
-      <div class="dropdown-menu">
-        <a href="#">Placeholder Collab 1</a>
-        <a href="#">Placeholder Collab 2</a>
-        <a href="#">Placeholder Collab 3</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="#">Your Blog ▼</a>
-      <div class="dropdown-menu">
-        <a href="create.html" style="color: green; font-weight: bold;">+ Add Blog</a>
-      </div>
-    </li>
-  </ul>
-</nav>
+    <div class="brand">Multidom</div>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="help.html">Help</a></li>
+      <li class="dropdown">
+        <a href="#">Creator Blogs ▼</a>
+        <div class="dropdown-menu" id="creatorBlogsMenu">
+          <!-- Dynamically filled with user-created blogs -->
+          <a href="#">Loading...</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">Examples ▼</a>
+        <div class="dropdown-menu">
+          <a href="teamfortress.html">Team Fortress 2</a>
+          <a href="warhammer.html">Warhammer</a>
+          <a href="cryoffear.html">Cry Of Fear</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#">Your Blog ▼</a>
+        <div class="dropdown-menu">
+          <a href="create.html" style="color: green; font-weight: bold;">+ Add Blog</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
 
   <!-- Page Content -->
   <h1>Welcome to Multidom</h1>
   <h3>Explore blogs and pages created by our community</h3>
 
   <div class="image-collage">
-    <img src="images/img1.jpg" alt="Collage image 1">
-    <img src="images/img2.jpg" alt="Collage image 2">
-    <img src="images/img3.jpg" alt="Collage image 3">
-    <img src="images/img4.jpg" alt="Collage image 4">
-    <img src="images/img5.jpg" alt="Collage image 5">
+    <img src="zero.jpg" alt="Collage image 1">
+    <img src="heit.jpg" alt="Collage image 2">
+    <img src="breaking.jpg" alt="Collage image 3">
+    <img src="father.jpg" alt="Collage image 4">
+    <img src="bcs.webp" alt="Collage image 5">
   </div>
 
   <p>
@@ -244,6 +245,29 @@
   <footer>
     &copy; 2025 Multidom. All rights reserved.
   </footer>
+
+  <!-- JS: Load Creator Blogs -->
+  <script>
+    const menu = document.getElementById("creatorBlogsMenu");
+    const blogs = JSON.parse(localStorage.getItem("creatorBlogs")) || [];
+
+    menu.innerHTML = "";
+
+    if (blogs.length === 0) {
+      const empty = document.createElement("a");
+      empty.textContent = "No blogs yet";
+      empty.href = "#";
+      empty.style.color = "#777";
+      menu.appendChild(empty);
+    } else {
+      blogs.forEach((blog, index) => {
+        const link = document.createElement("a");
+        link.textContent = blog.theme || `Blog ${index + 1}`;
+        link.href = `blog-view.html?index=${index}`;
+        menu.appendChild(link);
+      });
+    }
+  </script>
 
 </body>
 </html>
